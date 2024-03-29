@@ -15,6 +15,7 @@ class Client extends Model
         'name',
         'lastName',
         'typeOfDocument',
+        'historyNumber',
         'documentNumber',
         'email',
         'phone',

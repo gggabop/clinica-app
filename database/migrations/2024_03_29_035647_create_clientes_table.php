@@ -8,20 +8,36 @@ return new class extends Migration
 {
     /**
      * Run the migrations.
+     *
+     * @return void
      */
-    public function up(): void
+    public function up()
     {
-        Schema::create('clientes', function (Blueprint $table) {
+        Schema::create('clients', function (Blueprint $table) {
             $table->id();
+            $table->string('name')->nullable();
+            $table->string('lastName')->nullable();
+            $table->string('typeOfDocument')->nullable();
+            $table->string('historyNumber')->unique();
+            $table->string('documentNumber');
+            $table->string('email')->unique()->nullable();
+            $table->string('phone')->nullable();
+            $table->string('address')->nullable();
+            $table->string('postalCode')->nullable();
+            $table->string('city')->nullable();
+            $table->string('estate')->nullable();
+            $table->string('country')->nullable();
             $table->timestamps();
         });
     }
 
     /**
      * Reverse the migrations.
+     *
+     * @return void
      */
-    public function down(): void
+    public function down()
     {
-        Schema::dropIfExists('clientes');
+        Schema::dropIfExists('clients');
     }
 };
